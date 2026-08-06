@@ -3,7 +3,7 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "http://localhost:5000";
+  const host = "https://inotebook-4gy6.onrender.com";
   const notesInitial = [];
 
   const [notes, setNotes] = useState(notesInitial);
