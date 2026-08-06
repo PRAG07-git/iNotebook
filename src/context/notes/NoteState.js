@@ -39,7 +39,7 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem("token"),
       },
     });
-    const json = response.json;
+    // const json = response.json;
 
     const newNotes = notes.filter((note) => {
       return note._id !== id;
