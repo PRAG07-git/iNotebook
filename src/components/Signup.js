@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Signup = (props) => {
-  const host =
-    window.location.hostname === "localhost"
-      ? "http://localhost:5000"
-      : "https://inotebook-4gy6.onrender.com";
+  const host = "http://localhost:5000";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
