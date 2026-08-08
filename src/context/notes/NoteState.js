@@ -39,7 +39,7 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem("token"),
       },
     });
-    const json = response.json;
+    await response.json;
 
     const newNotes = notes.filter((note) => {
       return note._id !== id;
@@ -55,7 +55,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    const json = await response.json();
+    await response.json();
     let newNotes = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < notes.length; index++) {
       const element = notes[index];
