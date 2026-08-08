@@ -3,7 +3,10 @@ import NoteContext from "./noteContext";
 import { useState } from "react";
 
 const NoteState = (props) => {
-  const host = "https://inotebook-4gy6.onrender.com";
+  const host =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : "https://inotebook-4gy6.onrender.com";
   const notesInitial = [];
 
   const [notes, setNotes] = useState(notesInitial);
@@ -39,7 +42,7 @@ const NoteState = (props) => {
         "auth-token": localStorage.getItem("token"),
       },
     });
-    // const json = response.json;
+    const json = response.json;
 
     const newNotes = notes.filter((note) => {
       return note._id !== id;
@@ -55,7 +58,7 @@ const NoteState = (props) => {
       },
       body: JSON.stringify({ title, description, tag }),
     });
-
+    const json = await response.json();
     let newNotes = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < notes.length; index++) {
       const element = notes[index];

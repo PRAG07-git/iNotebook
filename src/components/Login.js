@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const host = "https://inotebook-4gy6.onrender.com";
+  const host =
+    window.location.hostname === "localhost"
+      ? "http://localhost:5000"
+      : "https://inotebook-4gy6.onrender.com";
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let Navigate = useNavigate();
   const handleSubmit = async (e) => {
